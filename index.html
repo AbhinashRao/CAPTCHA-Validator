@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTCHA Validator</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <div class="center">
         <h1 id="captchaHeading">Captcha Validator Using HTML, CSS and JavaScript</h1>
-        <div id="captchaBackground">
-            <canvas id="captcha">captcha text</canvas>
-            <input id="textBox" type="text" name="text">
-            <div id="buttons">
-                <input id="submitButton" type="submit">
-                <button id="refreshButton" type="submit">Refresh</button>
+
+        <form id="captchaForm" onsubmit="return false;">
+            <div id="captchaBackground" role="region" aria-labelledby="captchaHeading">
+                <canvas id="captcha" aria-label="Generated CAPTCHA image">captcha text</canvas>
+
+                <label for="textBox" style="color:white; margin-top: 10px;">Enter the CAPTCHA</label>
+                <input id="textBox" type="text" name="text" aria-label="Enter CAPTCHA" autocomplete="off" autofocus />
+
+                <div id="buttons">
+                    <input id="submitButton" type="submit" value="Submit" aria-label="Submit CAPTCHA" />
+                    <button id="refreshButton" type="button" aria-label="Refresh CAPTCHA">Refresh</button>
+                </div>
+
+                <span id="output" aria-live="polite"></span>
             </div>
-            <span id="output"></span>
-        </div>
+        </form>
     </div>
+
     <script src="script.js"></script>
 </body>
 
