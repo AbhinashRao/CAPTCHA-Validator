@@ -89,9 +89,19 @@ function checkCaptcha() {
         output.classList.remove("incorrectCaptcha");
         output.classList.add("correctCaptcha");
         output.innerHTML = "✅ Correct!";
+
+        userText.disabled = true;
+        submitButton.disabled = true;
+        refreshButton.disabled = true;
+
+        setTimeout(() => {
+            alert("CAPTCHA verified! Proceeding...");
+            // window.location.href = "success.html"; // Uncomment to redirect
+        }, 2000);
     } else {
         output.classList.remove("correctCaptcha");
         output.classList.add("incorrectCaptcha");
         output.innerHTML = "❌ Incorrect, please try again!";
     }
 }
+
